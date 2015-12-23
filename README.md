@@ -53,6 +53,20 @@ Sanity check!
 
     $ docker run -it redis
 
+## regenerate certificates / unable to connect to docker daemon
+
+Sometimes the IP address the Dinghy VM wants to use by default is
+unavailable. This may cause the VM to get a different IP address which
+in turn causes the certificates in the VM to not work. To fix this you
+need to regenerate the certificates for the VM.
+
+As Dinghy is build on top of [Docker Machine](https://github.com/docker/machine)
+you can run:
+
+    $ docker-machine regenerate-certs dinghy
+
+You need to do this everytime the IP of the VM changes.
+
 ## CLI Usage
 
 ```bash
